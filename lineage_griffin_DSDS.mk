@@ -12,15 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_griffin.mk \
-    $(LOCAL_DIR)/lineage_griffin_DSDS.mk
+# Inherit device parts
+$(call inherit-product, device/sony/griffin/aosp_j9110.mk)
 
-COMMON_LUNCH_CHOICES += \
-    lineage_griffin-eng \
-    lineage_griffin-userdebug \
-    lineage_griffin-user \
-    lineage_griffin_DSDS-eng \
-    lineage_griffin_DSDS-userdebug \
-    lineage_griffin_DSDS-user
+# Override Product Name
+PRODUCT_NAME := lineage_griffin_DSDS
+
+# Assert
+TARGET_OTA_ASSERT_DEVICE := griffin
 
